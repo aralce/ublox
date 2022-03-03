@@ -387,11 +387,11 @@ bool Ubx::ParseMsg() {
         parser_state_ = 0;
       }
     /* Payload */
-    } else if (parser_state_ < (rx_msg_.len + UBX_HEADER_LEN_)) {
+    } else if (parser_state_ < static_cast<std::size_t>(rx_msg_.len + UBX_HEADER_LEN_)) {
       rx_msg_.payload[parser_state_ - UBX_HEADER_LEN_] = c_;
       parser_state_++;
     /* Checksum */
-    } else if (parser_state_ == (rx_msg_.len + UBX_HEADER_LEN_)) {
+    } else if (parser_state_ == static_cast<std::size_t>(rx_msg_.len + UBX_HEADER_LEN_)) {
       chk_rx_ = c_;
       parser_state_++;
     } else {

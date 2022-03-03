@@ -259,9 +259,9 @@ void Ubx::ProcessNavData() {
       llh_[2] = (static_cast<double>(ubx_nav_hp_pos_llh_.payload.height) +
                  static_cast<double>(ubx_nav_hp_pos_llh_.payload.height_hp) *
                  0.1) * 1e-3;
-      alt_msl_m_ = (static_cast<float>(ubx_nav_hp_pos_llh_.payload.h_msl) +
+      alt_msl_mm_ = (static_cast<float>(ubx_nav_hp_pos_llh_.payload.h_msl) +
                     static_cast<float>(ubx_nav_hp_pos_llh_.payload.h_msl_hp) *
-                    0.1f) / 1000.0f;
+                    0.1f);
       h_acc_m_ = static_cast<float>(ubx_nav_hp_pos_llh_.payload.h_acc) /
                  10000.0f;
       v_acc_m_ = static_cast<float>(ubx_nav_hp_pos_llh_.payload.v_acc) /
@@ -270,7 +270,7 @@ void Ubx::ProcessNavData() {
       llh_[0] = static_cast<double>(ubx_nav_pvt_.payload.lat) * 1e-7;
       llh_[1] = static_cast<double>(ubx_nav_pvt_.payload.lon) * 1e-7;
       llh_[2] = static_cast<double>(ubx_nav_pvt_.payload.height) * 1e-3;
-      alt_msl_m_ = static_cast<float>(ubx_nav_pvt_.payload.h_msl) / 1000.0f;
+      alt_msl_mm_ = static_cast<float>(ubx_nav_pvt_.payload.h_msl);
       h_acc_m_ = static_cast<float>(ubx_nav_pvt_.payload.h_acc) / 1000.0f;
       v_acc_m_ = static_cast<float>(ubx_nav_pvt_.payload.v_acc) / 1000.0f;
     }

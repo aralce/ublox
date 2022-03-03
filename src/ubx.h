@@ -98,7 +98,7 @@ class Ubx {
   inline double lon_deg() const {return llh_[1];}
   inline double lon_rad() const {return deg2rad(llh_[1]);}
   inline float alt_wgs84_m() const {return static_cast<float>(llh_[2]);}
-  inline float alt_msl_m() const {return alt_msl_m_;}
+  inline float alt_msl_mm() const {return alt_msl_mm_;}
   inline float horz_acc_m() const {return h_acc_m_;}
   inline float vert_acc_m() const {return v_acc_m_;}
   inline Eigen::Vector3d ecef_pos_m() const {return ecef_m_;}
@@ -202,7 +202,7 @@ class Ubx {
   int32_t nano_;
   uint32_t t_acc_ns_;
   uint32_t svin_dur_s_, svin_num_obs_;
-  float alt_msl_m_;
+  float alt_msl_mm_;
   float gnd_spd_mps_;
   float track_deg_;
   float gdop_, pdop_, tdop_, vdop_, hdop_, ndop_, edop_;

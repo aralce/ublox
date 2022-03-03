@@ -252,10 +252,10 @@ void Ubx::ProcessNavData() {
     if (use_hp_pos_) {
       llh_[0] = (static_cast<double>(ubx_nav_hp_pos_llh_.payload.lat) +
                  static_cast<double>(ubx_nav_hp_pos_llh_.payload.lat_hp) *
-                 1e-2) * 1e-7;
+                 1e-2) * 1e-8;
       llh_[1] = (static_cast<double>(ubx_nav_hp_pos_llh_.payload.lon) +
                  static_cast<double>(ubx_nav_hp_pos_llh_.payload.lon_hp) *
-                 1e-2) * 1e-7;
+                 1e-2) * 1e-8;
       llh_[2] = (static_cast<double>(ubx_nav_hp_pos_llh_.payload.height) +
                  static_cast<double>(ubx_nav_hp_pos_llh_.payload.height_hp) *
                  0.1) * 1e-3;
